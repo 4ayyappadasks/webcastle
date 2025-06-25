@@ -46,7 +46,7 @@ class Collections extends StatelessWidget {
           height: MyApp.h * .02,
         ),
         SizedBox(
-          height: MyApp.h * .35,
+          height: MyApp.h * .4,
           child: ListView.builder(
             padding: EdgeInsets.only(left: MyApp.w * .03),
             shrinkWrap: true,
@@ -55,13 +55,13 @@ class Collections extends StatelessWidget {
             itemBuilder: (context, index) => Padding(
               padding: EdgeInsets.symmetric(horizontal: MyApp.w * .02),
               child: Container(
-                height: MyApp.h * .35,
+                height: MyApp.h * .4,
                 width: MyApp.w * .5,
                 decoration: BoxDecoration(
                     border: Border.all(color: ColorState.textfieldgraycolor),
                     borderRadius: BorderRadius.circular(MyApp.h * .02)),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     _offertag(
@@ -80,9 +80,12 @@ class Collections extends StatelessWidget {
                         realprice:
                             "${collections?.products?[index].actualPrice}"),
                     SizedBox(
+                      height: MyApp.h * .005,
+                    ),
+                    _buttons(cartcount: collections?.products?[index].cartCount??0),
+                    SizedBox(
                       height: MyApp.h * .01,
                     ),
-                    _buttons(cartcount: collections?.products?[index].cartCount??0)
                   ],
                 ),
               ),
